@@ -1,0 +1,34 @@
+import random
+import string
+import secrets
+
+CHARACTER_SET = string.ascii_letters + string.digits + string.punctuation
+
+def generate_otp(length=6):
+    otp = ''.join(random.choice(string.digits) for _ in range(length))
+    return otp
+
+def generate_password(length=8):
+    password = ''.join(secrets.choice(CHARACTER_SET) for _ in range(length))
+    return password
+
+if __name__ == "__main__":
+    print("Welcome to Secure OTP and Password Generator!")
+    while True:
+        print("\nMenu:")
+        print("1. Generate OTP")
+        print("2. Generate Secure Password")
+        print("3. Exit")
+        choice = input("Enter your choice (1/2/3): ")
+
+        if choice == "1":
+            otp = generate_otp()
+            print(f"Generated OTP: {otp}")
+        elif choice == "2":
+            password = generate_password()
+            print(f"Generated Secure Password: {password}")
+        elif choice == "3":
+            print("Thank you for using Secure OTP and Password Generator!")
+            break
+        else:
+            print("Invalid choice. Please try again.")
